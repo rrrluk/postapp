@@ -18,12 +18,14 @@
  });
 
  app.post("/postapp/addfriend", function (req, res) {
-     console.log(req.body);
-     console.log(req.body.key);
-     console.log(req.body.newFriend);
-     Object.keys(req.body).forEach(function(k){
-        console.log(k + ' - ' + req.body[k]);
-    });
+     var newFriend = req.body.newFriend;
+     friends.push(newFriend);
+     res.redirect("/postapp/friends");
+     // get both KEY and VALUE
+     //  Object.keys(req.body).forEach(function (k) {
+     //      console.log(k + ' - ' + req.body[k]);
+     //  });
+
      res.send("post route!");
 
  });
